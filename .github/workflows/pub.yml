@@ -1,39 +1,39 @@
-name: Publish Jekyll Site
+# name: Publish Jekyll Site
 
-on:
-  push:
-    branches:
-      - site
+# on:
+#   push:
+#     branches:
+#       - site
 
-jobs:
-  publish:
-    runs-on: ubuntu-latest
+# jobs:
+#   publish:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
         
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0.2'  # Specify the Ruby version you need
-          bundler-cache: true   # Caches the bundle to speed up subsequent runs
+#       - name: Set up Ruby
+#         uses: ruby/setup-ruby@v1
+#         with:
+#           ruby-version: '3.0.2'  # Specify the Ruby version you need
+#           bundler-cache: true   # Caches the bundle to speed up subsequent runs
 
-      - name: Configure Git safe directory
-        run: |
-          git config --global --add safe.directory /github/workspace
+#       - name: Configure Git safe directory
+#         run: |
+#           git config --global --add safe.directory /github/workspace
 
-      - name: Install dependencies
-        run: |
-          bundle install
+#       - name: Install dependencies
+#         run: |
+#           bundle install
 
-      - name: Build the site
-        run: |
-          JEKYLL_ENV=production bundle exec jekyll build
+#       - name: Build the site
+#         run: |
+#           JEKYLL_ENV=production bundle exec jekyll build
 
-      - name: Commit and push changes
-        run: |
-          git add --all
-          git commit -m "$(date)"
-          git push origin site
-          git subtree push --prefix=_site/ origin master
+#       - name: Commit and push changes
+#         run: |
+#           git add --all
+#           git commit -m "$(date)"
+#           git push origin site
+#           git subtree push --prefix=_site/ origin master
