@@ -74,9 +74,11 @@ GPU 클라우드 서버는 물리적인 GPU를 클라우드 환경에서 원격�
 
 ## **Paperspace와 Vast.ai 개요 및 특징**
 
-GPU 클라우드 서비스를 제공하는 업체는 여러군데가 있지만 이 중에서 이번 포스팅 시리즈에서는 Paperspace와 Vast.ai에 대해 다루겠습니다.
+GPU 클라우드 서비스를 제공하는 업체는 여러군데가 있지만 이 중에서 이번 포스팅 시리즈에서는 Paperspace와 Vast.ai에 대해 다루겠습니다. (더 다양한 GPU cloud service를 찾고 싶으면 gpu cloud service provideres를 검색해주세요.)
 
 이에 대한 이유로는 Paperspace(CORE)는 Virtual Machine(VM) 기반이고 Vast.ai는 Container(e. g., docker) 기반으로 서로 다른 특징이 있기 때문에 이 두 업체를 다룰 예정입니다.
+
+참고: [Containers versus virtual machines (VMs)](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#containers-versus-virtual-machines-vms)
 
 - **Paperspace(CORE)**:
     - GPU 기반 고성능 인스턴스를 가상 머신(VM) 형태로 제공하는 클라우드 서비스입니다.
