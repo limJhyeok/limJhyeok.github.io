@@ -10,7 +10,7 @@ sidebar-category:
       #   url: "/deep_learning"
       #   category: "deep_learning"
         
-      - title: "설정"
+      - title: "infra, setting"
         url:  "/set_up"
         category: "set_up"
 
