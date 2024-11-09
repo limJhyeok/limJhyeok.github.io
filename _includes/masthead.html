@@ -20,8 +20,9 @@
           <!-- 언어 선택 메뉴 추가 -->
           {% for lang in site.languages %}
           <li class="masthead__menu-item">
+
             <a href="{% if lang == site.default_lang %}{{ site.url }}{% else %}{{ site.url }}/{{ lang }}{% endif %}"
-               {% if lang == site.active_lang %}style="font-weight: bold;"{% endif %}>
+               >
               {{ lang | upcase }}
             </a>
           </li>
