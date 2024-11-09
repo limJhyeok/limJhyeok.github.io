@@ -28,6 +28,7 @@ date: 2024-11-06
 last_modified_at: 2022-11-09
 redirect_from: 
   - /old-gpu-cloud-post  # 이전 포스트에서 리디렉션
+# use_math: true / latex 문법 지원
 ---
 
 ## **GPU 클라우드 서버란?**
