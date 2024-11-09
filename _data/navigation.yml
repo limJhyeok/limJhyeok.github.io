@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "Search"
+    url: "/search"
 
 sidebar-category:
   - title: "카테고리"
