@@ -22,28 +22,12 @@ image: "/assets/images/gpu-cloud-setup.jpg"  # 포스트 대표 이미지 경로
 share: true        # 소셜 미디어 공유 버튼 활성화
 comments: true     # 댓글 기능 활성화
 related:
-  - "기타 GPU 클라우드 관련 포스트"  # 관련 포스트 제목
-  - "GPU 서버 최적화 방법"
+  - "[GPU 클라우드 셋팅] Paperspace 셋팅"  # 관련 포스트 제목
   
 date: 2024-11-06
-last_modified_at: 2022-11-06
+last_modified_at: 2022-11-09
 redirect_from: 
   - /old-gpu-cloud-post  # 이전 포스트에서 리디렉션
----
-
-## 목차
-
-1. **GPU 클라우드 서버란?**
-2. **Paperspace와 Vast.ai 개요 및 특징**
-3. **Paperspace 및 Vast.ai 공통 설정 단계**
-    - 회원가입 및 로그인 (Google 소셜 로그인 사용)
-    - 결제 카드 등록 및 SSH 키 설정
-    - GPU 인스턴스 생성
-        - 이미지 및 초기 설정 선택
-        - RAM, CPU, GPU, 드라이브 등 컴퓨터 리소스 설정
-    - GPU 인스턴스 구매 및 SSH 정보 확인
-    - VS Code Remote 연결을 통한 원격 개발 환경 설정
-    - GPU 상태 확인 (`nvidia-smi` 등)
 ---
 
 ## **GPU 클라우드 서버란?**
@@ -80,14 +64,19 @@ GPU 클라우드 서비스를 제공하는 업체는 여러군데가 있지만 �
 
 참고: [Containers versus virtual machines (VMs)](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#containers-versus-virtual-machines-vms)
 
-- **Paperspace(CORE)**:
-    - GPU 기반 고성능 인스턴스를 가상 머신(VM) 형태로 제공하는 클라우드 서비스입니다.
-    - 컨테이너가 아닌 VM 형태이므로 쉽게 컨테이너를 생성할 수 있습니다
+- **Paperspace(CORE)**
+
+GPU 기반 고성능 인스턴스를 가상 머신(VM) 형태로 제공하는 클라우드 서비스입니다.
+
+컨테이너가 아닌 VM 형태이므로 쉽게 컨테이너를 생성할 수 있습니다
+
 - **Vast.ai**
-    - 마켓플레이스 방식으로 GPU 서버를 임대할 수 있는 서비스입니다. Docker 컨테이너로 구동되어 가볍고 빠릅니다.
-    - 컨테이너이기 때문에 또다른 컨테이너를 띄우려면 도커 인 도커(Docker in Docker)와 같은 기술을 사용해야할 것으로 보입니다.
+
+마켓플레이스 방식으로 GPU 서버를 임대할 수 있는 서비스입니다. Docker 컨테이너로 구동되어 가볍고 빠릅니다.
+
+컨테이너이기 때문에 또다른 컨테이너를 띄우려면 도커 인 도커(Docker in Docker)와 같은 기술을 사용해야할 것으로 보입니다.
         
-        cf) 작성자도 해본적은 없습니다. 권한 때문에 막힐 수도 있습니다.
+cf) 작성자도 해본적은 없습니다. 권한 때문에 막힐 수도 있습니다.
         
 
 ## **Paperspace 및 Vast.ai 공통 설정 단계**
@@ -100,47 +89,66 @@ GPU 클라우드 서비스를 제공하는 업체는 여러군데가 있지만 �
 
 - **결제 카드 등록**
 - **SSH 키 설정**
-    - 원격 서버에 안전하게 접근하기 위해 SSH 키를 설정합니다.
 
-### 3. GPU 인스턴스 생성
+원격 서버에 안전하게 접근하기 위해 SSH 키를 설정합니다.
 
-- **이미지 및 초기 설정 선택**
-    - 인스턴스 생성 시 기본 운영체제(window, ubuntu 등) 또는 딥러닝 프레임워크(pytorch, tensorflow 등)가 사전 설치된 이미지를 선택할 수 있습니다
-- **컴퓨터 리소스 설정 (RAM, CPU, GPU, 드라이브, 네트워크 등)**
-    - **GPU**
-        - 모델(e. g., A100, RTX-3090 등)
-        - RAM(32GB, 64GB 등)
-    - **RAM/CPU**
-        - 용량
-        - 속도
-    - **드라이브**
-        - 딥러닝 학습의 경우 데이터 양과 모델 크기 또한 무시할 수 없기 때문에 드라이브 용량도 주의깊게 보신 후 선택하셔야 합니다.
-    - **네트워크**
-        - 잦은 네트워크 작업(e. g., 파일 업로드 및 파일 다운 등)이 빈번할 경우 네트워크 속도가 높은 인스턴스를 고르셔야 합니다.
+### 3. GPU 인스턴스 설정
+
+**3-1) 이미지 및 초기 설정 선택**
+
+인스턴스 생성 시 기본 운영체제(window, ubuntu 등) 또는 딥러닝 프레임워크(pytorch, tensorflow 등)가 사전 설치된 이미지를 선택할 수 있습니다
+
+
+**3-2) 컴퓨터 리소스 설정 (RAM, CPU, GPU, 드라이브, 네트워크 등)**
+  - **GPU**
+
+제품 선택(e. g., A100, RTX-3090 등)
+
+GPU 용량 선택(32GB, 64GB 등)
+
+  - **RAM/CPU**
+
+용량
+
+속도
+
+  - **드라이브**
+
+딥러닝 학습의 경우 데이터와 모델 크기 또한 무시할 수 없기 때문에 드라이브 용량도 주의깊게 보신 후 선택하셔야 합니다.
+
+  - **네트워크**
+
+네트워크 작업(e. g., 파일 업로드 및 파일 다운 등)이 빈번할 경우 네트워크 속도가 높은 인스턴스를 고르셔야 합니다.
 
 ### 4. GPU 인스턴스 구매 및 SSH 정보 확인
 
-- **GPU 인스턴스 구매**
-- **SSH 접속 정보 확인**
-    - 계정이름(e. g., root)
-    - IP(e. g., 123.45.67.890)
-    - Port(e. g., 12345)
+**4-1) GPU 인스턴스 구매**
+
+**4-2) SSH 접속 정보 확인**
+
+  - 계정이름(e. g., root)
+
+  - IP(e. g., 123.45.67.890)
+
+  - Port(e. g., 12345)
     
-    ```bash
-    ssh root@123.45.67.890:12345
-    ```
+```bash
+ssh root@123.45.67.890:12345
+```
     
 
 ### 5. VS Code Remote 연결을 통한 원격 개발 환경 설정
 
-- VS Code [**Remote - SSH**](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension 설치
-- SSH 설정
-    - 구매한 인스턴스의 HostName, Port, User, Host 설정 기입
-- SSH를 통해 VM 또는 컨테이너 진입
+**5-1) VS Code [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension 설치**
+
+**5-2) SSH 설정**
+  - 구매한 인스턴스의 HostName, Port, User, Host 설정 기입
+
+**5-3) SSH를 통해 VM 또는 컨테이너 진입**
 
 ### 6. GPU 상태 확인 (`nvidia-smi` 등)
 
-- **GPU 상태 확인**
-    - 인스턴스가 정상적으로 구동되었는지 확인하기 위해 터미널에서 `nvidia-smi` 명령어를 실행합니다.
+**6-1) GPU 상태 확인**
+  - 인스턴스가 정상적으로 구동되었는지 확인하기 위해 터미널에서 `nvidia-smi` 명령어를 실행합니다.
         
-        cf. nvidia 드라이버가 설치되어있지 않다면 GPU가 존재해도 (일반적으로) 이를 딥러닝 학습에 활용할 수 없습니다.
+  cf. nvidia 드라이버가 설치되어있지 않다면 GPU가 존재해도 (일반적으로) 이를 딥러닝 학습에 바로 활용할 수 없습니다.
