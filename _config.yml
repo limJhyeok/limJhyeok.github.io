@@ -329,5 +329,5 @@ defaults:
 
 languages: ["ko", "en"]
 default_lang: "ko"
-exclude_from_localization: ["images", "javascripts"]
+exclude_from_localization: ["images", "javascripts", "sitemap.xml"]
 parallel_localization: true
