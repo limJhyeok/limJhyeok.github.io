@@ -23,7 +23,7 @@ share: true        # 소셜 미디어 공유 버튼 활성화
 comments: true     # 댓글 기능 활성화
 related:
   - "[GPU Cloud Setting] (General) Why we use and How to setting"  # 관련 포스트 제목
-  
+  - "[GPU Cloud Setting] Vast.ai setting"  
 date: 2024-11-06
 last_modified_at: 2022-11-09
 redirect_from: 

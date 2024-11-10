@@ -23,6 +23,7 @@ share: true        # 소셜 미디어 공유 버튼 활성화
 comments: true     # 댓글 기능 활성화
 related:
   - "[GPU 클라우드 셋팅] 사용 이유 및 사용방법(공통)"  # 관련 포스트 제목
+  - "[GPU 클라우드 셋팅] Vast.ai 셋팅"
   
 date: 2024-11-06
 last_modified_at: 2022-11-09
