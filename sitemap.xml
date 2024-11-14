@@ -1,0 +1,28 @@
+---
+layout:
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% for lang in site.languages %}
+    {% for node in site.pages %}
+        {% unless site.exclude_from_localization contains node.path %}
+            {% if node.layout %}
+                {% unless node.path contains 'assets' %}
+                    <url>
+                        <loc>{% if lang == site.default_lang %}{{ node.url | absolute_url }}{% else %}{{ node.url | prepend: lang | prepend: '/' | absolute_url }}{% endif %}</loc>
+                    </url>
+                {% endunless %}
+            {% endif %}
+        {% endunless %}
+    {% endfor %}
+    {% for collection in site.collections %}
+        {% for node in site[collection.label] %}
+            {% unless node.path contains 'assets' %}
+                <url>
+                    <loc>{% if lang == site.default_lang %}{{ node.url | absolute_url }}{% else %}{{ node.url | prepend: lang | prepend: '/' | absolute_url }}{% endif %}</loc>
+                </url>
+            {% endunless %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+</urlset>
