@@ -7,13 +7,13 @@ permalink: /set_up/paperspace-setup/
 categories: 
   - set_up
 tags:
-  - GPU 서버
-  - GPU 클라우드
+  - GPU server
+  - GPU cloud
   - GPU VM
   - GPU docker container
-  - GPU 셋팅
+  - GPU setup
 
-toc_label: "목차"  # 목차 제목을 원하는 대로 설정
+toc_label: "table of contents"  # 목차 제목을 원하는 대로 설정
 toc: true           # 목차 활성화
 toc_sticky: true    # 스크롤 시 목차 고정
 
