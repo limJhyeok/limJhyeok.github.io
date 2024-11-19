@@ -32,7 +32,7 @@ redirect_from:
 
 cf. It may be difficult to follow the exact steps below, as the Vast.ai UI might change over time. However, the overall process of renting a GPU Docker Container will remain similar, so you can still easily rent one by referring to the steps below.
 
-### 1. Sign Up and Log InPermalink
+### 1. Sign Up and Log In
 
 <img src="/images/assets/2024-11-10-17-09-46.png" width="100%" />
 
@@ -58,7 +58,7 @@ Now, let’s increase the **Credit** by adding a payment card to rent a GPU serv
 
 Please click the **BILLING** button on the left sidebar to register your payment card.
 
-### 2. Enroll The Credit CardPermalink
+### 2. Enroll The Credit Card
 
 <img src="/images/assets/2024-11-10-17-26-16.png" width="100%" />
 
@@ -287,7 +287,7 @@ Click on vastai to connect to the server. Since the SSH key has been registered,
 
 Once connected, you will see the message “Welcome to your vast.ai container! …” in the shell, confirming that you are successfully logged in as root.
 
-### 5. Verify GPU Status (nvidia-smi)Permalink
+### 5. Verify GPU Status (nvidia-smi)
     
 <img src="/images/assets/2024-11-10-21-39-38.png" width="100%" />
 
